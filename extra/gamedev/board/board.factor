@@ -1,4 +1,4 @@
-USING: sequences kernel accessors ;
+USING: sequences kernel accessors locals ;
 
 IN: gamedev.board
 
