@@ -1,13 +1,13 @@
-USING: accessors kernel game_lib colors.constants ui.gadgets ;
+USING: accessors kernel gamedev.game_lib colors.constants ui.gadgets ;
 
-IN: game_lib_test
+IN: gamedev.game_lib_test
 
 : draw ( gadget -- gadget )
     COLOR: pink set-background-color ! defaults to white if not set
     COLOR: green { 0 0 } { 150 150 } draw-filled-rectangle ! draws this first
     COLOR: blue { 0 0 } { 100 100 } draw-filled-rectangle
-    "vocab:game_lib_test/resources/X.png" { 20 40 } { 20 20 } draw-image
-    "vocab:game_lib_test/resources/O.png" { 60 40 } { 20 20 } draw-image ;
+    "vocab:gamedev/game_lib_test/resources/X.png" { 20 40 } { 20 20 } draw-image
+    "vocab:gamedev/game_lib_test/resources/O.png" { 60 40 } { 20 20 } draw-image ;
 
 
 : display-window ( -- )

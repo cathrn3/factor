@@ -1,7 +1,7 @@
 USING: accessors ui.gadgets kernel ui.gadgets.status-bar ui ui.render colors.constants opengl sequences combinators peg
 images.loader opengl.textures ;
 
-IN: game_lib
+IN: gamedev.game_lib
 
 TUPLE: window-gadget < gadget dimension bg-color rects-params images-params ;
 
