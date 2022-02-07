@@ -3,11 +3,15 @@ images.loader opengl.textures ;
 
 IN: gamedev.game_lib
 
+! Dictionary of how to draw different items
+! 
 TUPLE: window-gadget < gadget dimension bg-color rects-params images-params ;
 
 TUPLE: rect color loc dim ;
 
 TUPLE: sprite image loc dim ;
+
+
 
 :: display ( gadget -- )
     [ 
@@ -56,7 +60,7 @@ TUPLE: sprite image loc dim ;
 
 : draw-images ( images-params -- )
     [ draw-single-image ] each ;
-
+    
 M: window-gadget pref-dim*
    dimension>> ;
 
@@ -66,3 +70,30 @@ M: window-gadget draw-gadget*
         [ rects-params>> draw-rects ] 
         [ images-params>> draw-images ]
     } cleave ;
+
+
+
+
+! Draw board function or board gadget
+
+! TUPLE: board-gadget < gadget board dimension;
+
+! :: <board-gadget> ( board -- gadget )
+!     grid-gadget new
+!         board >>board ;
+        ! rows cols make-cells
+        ! mines place-mines update-counts >>cells
+        ! H{ } clone >>textures
+        ! dup '[ _ relayout-1 ] f 1 seconds <timer> >>timer
+        ! COLOR: gray <solid> >>interior
+        ! "12345" <circular> >>hint? ;
+
+
+! M: board-gadget pref-dim*
+
+
+! M: board-gadget handle-gesture
+
+
+! M: board-gadget draw-gadget*
+

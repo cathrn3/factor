@@ -2,13 +2,16 @@ USING: sequences kernel accessors sequences.extras ;
 
 IN: gamedev.board
 
-TUPLE: board width height cells default-cell ;
+TUPLE: board width height cells default-cell cell-size;
+
+TUPLE: cell parent-piece sprite loc ;
 
 :: make-cells ( width height cell -- cells )
     height [ width [ cell clone ] replicate ] replicate ;
 
 :: make-board ( width height default-cell -- board )
-    width height default-cell make-cells :> cells
+    default-cell COLOR: pink
+    width height { default-cell} make-cells :> cells
     width height cells default-cell board boa ;
 
 ! Sets all cells to the default cell
