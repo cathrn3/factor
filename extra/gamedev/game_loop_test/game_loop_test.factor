@@ -13,7 +13,7 @@ SYMBOL: my-game-loop
 
 : tick-update ( test-class -- test-class )
     dup counter>> 5 = 
-    [ my-game-loop get stop-loop ] 
+    [ stop-game ] 
     [ [ 1 + ] change-counter ] if ;
 
 : draw-update ( tick-slice delegate -- )
@@ -23,11 +23,13 @@ M: test-class tick* tick-update drop ;
 
 M: test-class draw* draw-update ;
 
+: stop-game ( -- )
+    my-game-loop get stop-loop ;
 
 : new-test-class ( -- test-class )
     0 test-class boa ;
 
-: new-game-loop ( interval test-class -- test-class )
+: new-game-loop ( interval test-class -- game-loop )
     <game-loop> dup my-game-loop set ;
 
 : create-loop ( -- )
